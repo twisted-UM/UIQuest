@@ -81,6 +81,7 @@ public class QuestBrowserScreen extends Screen {
     private enum QuestStatus { CAN_START, IN_PROGRESS, CAN_CLAIM, COMPLETED, LOCKED }
 
     private boolean suppressOpenSound = false;
+    private boolean firstInit = true;
 
     private static class TreeNode {
         NodeType    type;
@@ -232,12 +233,14 @@ public class QuestBrowserScreen extends Screen {
         if (savedGroupIdx < groups.size()) {
             activeGroupIdx = savedGroupIdx;
         }
-        rebuildFlat(groups.get(activeGroupIdx));
+        if (!groups.isEmpty()) {
+            rebuildFlat(groups.get(activeGroupIdx));
+        }
 
         long trackedId = UIQuestConfig.TRACKED_QUEST_ID.get();
         if (trackedId >= 0) {
             autoSelectTrackedQuest();
-        } else if (savedQuestId >= 0) {
+        } else if (savedQuestId >= 0 && !groups.isEmpty()) {
             for (TreeNode n : groups.get(activeGroupIdx).flat)
                 if (n.type == NodeType.QUEST && n.quest.id == savedQuestId)
                     selectedNode = n;
@@ -246,10 +249,13 @@ public class QuestBrowserScreen extends Screen {
             tasksScrollOffset = savedTasksScroll;
         }
 
-        if (!suppressOpenSound) {
-            UISounds.play(UISounds.UI_BASE);
-        } else {
-            suppressOpenSound = false;
+        if (firstInit) {
+            firstInit = false;
+            if (!suppressOpenSound) {
+                UISounds.play(UISounds.UI_BASE);
+            } else {
+                suppressOpenSound = false;
+            }
         }
     }
 
