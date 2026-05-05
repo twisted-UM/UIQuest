@@ -11,13 +11,14 @@
   "uiquest.screen.reward.title": "퀘스트 완료 보상",
   "uiquest.screen.btn.track": "퀘스트 추적",
   "uiquest.screen.btn.tracking": "추적 중지",
-  "uiquest.screen.btn.open_quest": "퀘스트 열기",
-  "uiquest.screen.image.unknown": "[알 수 없는 아이템: %s]",
-  "uiquest.screen.image.error": "[이미지 오류: %s]",
+  "uiquest.screen.btn.open_quest": "FTB로 열기",
+  "uiquest.screen.chain.step": "퀘스트 단계",
   "uiquest.screen.task.click_complete": "▶ 클릭하여 완료",
   "uiquest.screen.task.click_submit": "▶ 클릭하여 제출",
-  "uiquest.screen.image.placeholder": "[이미지]",
+  "uiquest.screen.popup.all_rewards": "모든 보상",
   "uiquest.screen.search.hint": "챕터 / 퀘스트 검색",
+  "uiquest.tooltip.open_settings": "설정 화면 열기",
+  "uiquest.tooltip.open_ftb": "FTB Quest UI에서 퀘스트 열기",
 
   "uiquest.hud.quest_complete": "퀘스트 완료!",
   "uiquest.hud.more_tasks": "외 %s개...",
@@ -34,14 +35,6 @@
   "key.uiquest.quest_actions": "HUD 퀘스트 동작",
 
   "uiquest.settings.title": "UIQuest 설정",
-  "uiquest.settings.section.gui": "GUI",
-  "uiquest.settings.section.hud": "HUD",
-  "uiquest.settings.gui.scale": "전체 배율",
-  "uiquest.settings.gui.layout_scale": "레이아웃 배율",
-  "uiquest.settings.gui.text_scale": "텍스트 배율",
-  "uiquest.settings.hud.scale": "전체 배율",
-  "uiquest.settings.hud.layout_scale": "레이아웃 배율",
-  "uiquest.settings.hud.text_scale": "텍스트 배율",
 
   "uiquest.settings.category.general": "일반",
   "uiquest.settings.category.gui": "GUI",
@@ -69,7 +62,11 @@
   "uiquest.settings.general.auto_track_multi": "퀘스트 분기 시 자동 추적",
   "uiquest.settings.general.sound_enabled": "UI 사운드 (미완성)",
   "uiquest.settings.general.sound_volume": "사운드 볼륨",
+  "uiquest.settings.general.reload_config": "Dev 파일 새로고침",
+  "uiquest.settings.general.reload_config.btn": "새로고침",
 
   "uiquest.settings.gui.show_completed_chapters": "완료된 챕터 표시",
-  "uiquest.settings.hud.enabled": "HUD 표시"
+  "uiquest.settings.hud.enabled": "HUD 표시",
+  "uiquest.settings.gui.show_chain": "퀘스트 단계 표시 (GUI)",
+  "uiquest.settings.hud.show_chain": "퀘스트 단계 표시 (HUD)"
 }
