@@ -1,0 +1,26 @@
+{
+  "ui_base": {
+    "sounds": [{"name": "uiquest:ui_base"}]
+  },
+  "ui_navigate": {
+    "sounds": [{"name": "uiquest:ui_navigate"}]
+  },
+  "ui_chapter": {
+    "sounds": [{"name": "uiquest:ui_chapter"}]
+  },
+  "ui_click": {
+    "sounds": [{"name": "uiquest:ui_click"}]
+  },
+  "ui_config_click": {
+    "sounds": [{"name": "uiquest:ui_config_click"}]
+  },
+  "ui_scroll": {
+    "sounds": [{"name": "uiquest:ui_scroll"}]
+  },
+  "hud_reward_get": {
+    "sounds": [{"name": "uiquest:hud_reward_get"}]
+  },
+  "hud_popup_open": {
+    "sounds": [{"name": "uiquest:hud_popup_open"}]
+  }
+}
