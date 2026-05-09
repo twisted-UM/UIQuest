@@ -66,8 +66,9 @@
   "uiquest.settings.general.reload_config.btn": "Reload",
 
   "uiquest.settings.gui.show_completed_chapters": "Show Completed Chapters",
-  "uiquest.settings.hud.enabled": "Show HUD",
-
+  "uiquest.settings.gui.show_empty_chapters": "Show Empty Chapters",
   "uiquest.settings.gui.show_chain": "Show Quest Step (GUI)",
+
+  "uiquest.settings.hud.enabled": "Show HUD",
   "uiquest.settings.hud.show_chain": "Show Quest Step (HUD)"
 }
