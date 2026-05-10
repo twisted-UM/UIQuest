@@ -303,6 +303,13 @@ public class QuestBrowserScreen extends Screen {
                     questNodes.add(new TreeNode(quest, st));
                 }
                 if (!UIQuestConfig.SHOW_EMPTY_CHAPTERS.get() && questNodes.isEmpty()) continue;
+                questNodes.sort(Comparator.comparingInt(n -> switch (n.status) {
+                    case CAN_CLAIM   -> 0;
+                    case IN_PROGRESS -> 1;
+                    case CAN_START   -> 2;
+                    case LOCKED      -> 3;
+                    case COMPLETED   -> 4;
+                }));
                 entry.nodes.add(new TreeNode(ch));
                 entry.nodes.addAll(questNodes);
             }
@@ -321,6 +328,13 @@ public class QuestBrowserScreen extends Screen {
                     questNodes.add(new TreeNode(quest, st));
                 }
                 if (!UIQuestConfig.SHOW_EMPTY_CHAPTERS.get() && questNodes.isEmpty()) continue;
+                questNodes.sort(Comparator.comparingInt(n -> switch (n.status) {
+                    case CAN_CLAIM   -> 0;
+                    case IN_PROGRESS -> 1;
+                    case CAN_START   -> 2;
+                    case LOCKED      -> 3;
+                    case COMPLETED   -> 4;
+                }));
                 entry.nodes.add(new TreeNode(ch));
                 entry.nodes.addAll(questNodes);
             }
@@ -811,17 +825,13 @@ public class QuestBrowserScreen extends Screen {
                 }
                 drawY += imgH + 4;
             } else {
-                if (drawY + font.lineHeight > dDescY && drawY < dDescY + dDescH) {
-                    List<net.minecraft.util.FormattedCharSequence> wrapped =
-                            font.split(line, detailW - 20);
-                    for (var seq : wrapped) {
-                        if (drawY + font.lineHeight > dDescY && drawY < dDescY + dDescH) {
-                            gfx.drawString(font, seq, x, drawY, COL_TEXT_DIM, false);
-                        }
-                        drawY += font.lineHeight;
+                List<net.minecraft.util.FormattedCharSequence> wrapped =
+                        font.split(line, detailW - 20);
+                for (var seq : wrapped) {
+                    if (drawY + font.lineHeight > dDescY && drawY < dDescY + dDescH) {
+                        gfx.drawString(font, seq, x, drawY, COL_TEXT_DIM, false);
                     }
-                } else {
-                    drawY += font.split(line, detailW - 20).size() * font.lineHeight;
+                    drawY += font.lineHeight;
                 }
             }
         }
@@ -1289,7 +1299,8 @@ public class QuestBrowserScreen extends Screen {
                 return true;
             }
             if (x >= detailX && x < detailX + detailW - 6 && y >= dTasksY && y < dTasksY + dTasksH) {
-                int TASK_ROW = dTasksH / MAX_VIS_TASKS;
+                int visibleTaskCount = Math.min(selectedNode.quest.getTasksAsList().size(), MAX_VIS_TASKS);
+                int TASK_ROW = visibleTaskCount > 0 ? dTasksH / visibleTaskCount : TASK_ROW_H;
                 int ti = (y - dTasksY) / TASK_ROW;
                 int taskIdx = ti + tasksScrollOffset;
                 List<Task> taskList = selectedNode.quest.getTasksAsList();
