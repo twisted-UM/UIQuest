@@ -47,7 +47,7 @@ public class UIQuestConfig {
         HUD_ENABLED = builder
                 .comment("Show the HUD overlay")
                 .define("hudEnabled", true);
-        HUD_SHOW_COMPLETED_TASKS = builder.define("hudShowCompletedTasks", true);
+        HUD_SHOW_COMPLETED_TASKS = builder.define("hudShowCompletedTasks", false);
         HUD_POS_X = builder.defineInRange("hudPosX", 4, 0, 1920);
         HUD_POS_Y = builder.defineInRange("hudPosY", 104, 0, 1080);
         SHOW_CHAIN_IN_HUD = builder
